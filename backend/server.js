@@ -9,6 +9,8 @@ dotenv.config();
 //get the express app instance
 const app = express();
 
+app.use(express.json()); // Middleware to parse JSON bodies
+
 //create a get request handler for the root path
 app.get('/', (req, res) => {
     //send a response
