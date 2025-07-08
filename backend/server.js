@@ -18,13 +18,37 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/users', (req, res) => {
+app.get('/api/products', (req, res) => {
   res.json([
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Smith' },
-    { id: 3, name: 'Alice Johnson' }
+    {
+      id: 1,
+      name: "Product 1",
+      description: "This is product 2",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      name: "Product 2",
+      description: "This is product 2",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      name: 'Product 3',
+      description: 'This is product 3',
+      imageUrl: 'https://via.placeholder.com/150', 
+    }
   ]);
 })
+app.post('/api/products', (req, res) => {
+   const newProduct = req.body;
+
+   res.status(201).json({
+        message: 'Product created successfully',
+        product: newProduct
+   })
+});
+
 const PORT = process.env.PORT;
 
 
