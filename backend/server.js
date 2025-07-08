@@ -1,10 +1,10 @@
 //import the dotenv to load environment variables 
+import express from 'express'; // Import express
+import connectDb from './config/db.js'; // Import the connectDB function
 import dotenv from 'dotenv';
+
 dotenv.config();
 
-//import express
-import express from 'express';
-import { dot } from 'node:test/reporters';
 
 //get the express app instance
 const app = express();
@@ -25,8 +25,10 @@ app.get('/users', (req, res) => {
 })
 const PORT = process.env.PORT;
 
-app.
+
 //start the server
 app.listen(PORT, () => {
+    connectDb(); // Call the connectDB function to connect to MongoDB
     console.log(`Server is running on port 5000 and we are ready to go! ${PORT}`);
+
 });
