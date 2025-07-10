@@ -8,11 +8,13 @@ import express from "express";
 import ProductModel from "./models/product.model.js";
 import connectDB from "./config/db.js";
 import productRouter from "./routes/product.route.js";
+import cors from "cors";
 
 // Get the express app instance
 const app = express();
 
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(cors("*")); // Enable CORS for all origins
 
 app.use("/api/products", productRouter); // Use the product router for all product-related routes
 

@@ -1,14 +1,16 @@
-import { PlusIcon, SunIcon } from 'lucide-react'
+import { PlusIcon, ShoppingCart, SunIcon, } from "lucide-react";
 import React from 'react'
 import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div className="w-full h-10   border-green-700 flex items-center color">
+    <div className="bg-blue-400 w-full h-10 flex items-center">
       <div className="flex justify-between   items-center max-w-3xl mx-auto w-[90%]">
         <div>
           <Link to="/">
-            <h1>Product Store <storeIcon/> </h1>
+            <h1 className="flex items-center gap-2">
+              <span className="colo">Product Store</span> <ShoppingCart size={16} color="white" />
+            </h1>
           </Link>
         </div>
         <div className="flex space-x-2">
