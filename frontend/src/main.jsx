@@ -5,12 +5,15 @@ import App from "./App.jsx";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes/dist/cjs/index.js";
 import { ThemeProvider } from "next-themes";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Theme>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Theme>
     </ThemeProvider>
   </StrictMode>
