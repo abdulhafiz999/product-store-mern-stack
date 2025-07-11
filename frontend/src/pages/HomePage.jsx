@@ -1,10 +1,13 @@
 import { Rocket } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/productCard";
+import ConfirmModal from "../components/ConfirmModal";
 
 function HomePage() {
   // Funtion that fatches all the products from the database
   const [products, setProducts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [productId, setProductId] = useState(null);
   console.log(products);
 
   async function getAllProducts() {
@@ -29,6 +32,7 @@ function HomePage() {
   useEffect(() => {
     getAllProducts();
   }, []);
+  
 
   return (
     <div className="border h-screen m-0">
@@ -37,16 +41,23 @@ function HomePage() {
           Current Products <Rocket size={18} />
         </h2>
         {/* This is grid container for the produtcs*/}
-        <div className="border-green-500 grid grid-cols-3 gap-4">
+        <div className="border-green-500 grid grid-cols-3 gap-4 py-4">
           {products.map((product) => (
           <ProductCard 
           key={product._id}
           product={product}
+          setShowModal={setShowModal}
+          setProductId={setProductId}
           />
           ))}
 
         </div>
       </div>
+      {
+        showModal && (
+          <ConfirmModal setShowModal={setShowModal} productId={productId} />
+        )
+      }
     </div>
   );
 }
