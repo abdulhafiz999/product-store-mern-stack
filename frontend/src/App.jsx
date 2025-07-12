@@ -4,12 +4,14 @@ import Navbar from './components/Navbar'
 import { Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
+import { Toaster } from "sonner";
  
 
 function App() {
 
   return (
-    <div className='bg-black min-h-screen'>
+    <>
+      <Toaster position="top-center" richColors />
       {/* First we need the navbar component which is static accross all pages */}
       <Navbar />
       <Routes>
@@ -17,7 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/create-product" element={<CreatePage />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

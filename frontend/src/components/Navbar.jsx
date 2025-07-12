@@ -1,6 +1,7 @@
 import { PlusIcon, ShoppingCart, SunIcon, } from "lucide-react";
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ThemeSwitcher from "./ThemeSwitcher";
 
 function Navbar() {
   return (
@@ -15,10 +16,9 @@ function Navbar() {
         </div>
         <div className="flex space-x-2">
           <Link to="/create-product">
-            <PlusIcon size={16} className="p-1 bg-gray-600 rounded shadow-xl" />
+            <PlusIcon size={24} className="p-1 bg-gray-600 rounded shadow-xl" />
           </Link>
-
-          <SunIcon size={16} className="p-1 bg-gray-600 rounded shadow-xl" />
+          <ThemeSwitcher/>
         </div>
       </div>
     </div>
