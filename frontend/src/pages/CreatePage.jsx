@@ -45,7 +45,7 @@ function CreatePage() {
   };
   return (
     <div className="w-full border h-screen">
-      <div className="border-2 p-6 max-w-xl mx-auto">
+      <div className="p-6 max-w-xl mx-auto">
         <h2 className="text-center font-bold mb-4 ">Create a new Product</h2>
         <form onSubmit={submitProduct} action="" className=" dark:bg-gray-950">
           <div className="w-full mb-3">

@@ -15,7 +15,7 @@ function ProductCard({ key, product, setShowModal, setProductId }) {
         <img
           src={product?.imageUrl}
           alt={product?.name}
-          className="overflow-hidden rounded-t w-full h-28"
+          className="overflow-hidden rounded-t w-full h-39"
         />
         <div className="p-1">
           <h4>{product?.name}</h4>
