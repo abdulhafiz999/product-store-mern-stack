@@ -43,21 +43,24 @@ function HomePage() {
         {/* This is grid container for the produtcs*/}
         <div className="border-green-500 grid grid-cols-3 gap-4 py-4">
           {products.map((product) => (
-          <ProductCard 
-          key={product._id}
-          product={product}
-          setShowModal={setShowModal}
-          setProductId={setProductId}
-          />
+            <ProductCard
+              key={product._id}
+              product={product}
+              setShowModal={setShowModal}
+              setProductId={setProductId}
+            />
           ))}
-
         </div>
       </div>
-      {
-        showModal && (
-          <ConfirmModal setShowModal={setShowModal} productId={productId} />
-        )
-      }
+      {showModal && (
+        <ConfirmModal
+          setShowModal={setShowModal}
+          productId={productId}
+          onDelete={(id) => {
+            setProducts(products.filter((product) => product._id !== id));
+          }}
+        />
+      )}
     </div>
   );
 }
