@@ -3,11 +3,15 @@ import { PenBox, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-function ProductCard({ key, product, setShowModal, setProductId, refreshProducts }) {
-
-  const [updatedProduct, setUpdatedProduct] = useState(product)
+function ProductCard({
+  key,
+  product,
+  setShowModal,
+  setProductId,
+  refreshProducts,
+}) {
+  const [updatedProduct, setUpdatedProduct] = useState(product);
   const [isExpanded, setIsExpanded] = useState(false);
-
 
   function handleDeleteProduct(id) {
     setShowModal(true);
@@ -18,42 +22,55 @@ function ProductCard({ key, product, setShowModal, setProductId, refreshProducts
     const response = await fetch(`http://localhost:3000/api/products/${id}`, {
       method: "PUT",
       headers: {
-        'Content-type': 'application/json'
+        "Content-type": "application/json",
       },
       body: JSON.stringify({
         name: updatedProduct.name,
         price: parseFloat(updatedProduct.price),
         stock: Number(updatedProduct.stock),
         imageUrl: updatedProduct.imageUrl,
-        description: updatedProduct.description
-      })
+        description: updatedProduct.description,
+      }),
     });
 
-    if(response.ok){
-      const data = await response.json()
-      console.log(data)
-      console.log("Product Updated Succesfully")
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      console.log("Product Updated Succesfully");
       refreshProducts();
-      toast("Product updated Successfully!!! 🎉")
+      toast("Product updated Successfully!!! 🎉");
     }
   }
 
   return (
     <div
       key={key}
-      className="border border-gray-500/25 bg-gray-950 rounded shadow-lg m-2"
+      className="border border-gray-500/25 bg-gray-950  rounded-2xl shadow-lg m-2"
     >
-      <div>
+      <div className="rounded-2xl">
         <img
           src={product?.imageUrl}
           alt={product?.name}
-          className="overflow-hidden rounded-t w-full h-53 object-cover"
+          className="overflow-hidden rounded-t w-full h-53 object-cover rounded-2xl"
         />
         <div className="p-3">
           <h4>{product?.name}</h4>
           <p>${product?.price}</p>
           <p>{product?.stock} Pieces available😊</p>
-          <p className="line-clamp-3">{product?.description}</p>
+          {/* <p className="line-clamp-3">{product?.description}</p> */}
+          <p className={isExpanded ? "" : "line-clamp-3"}>
+            {product?.description}
+          </p>
+
+          {product?.description?.length > 100 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-blue-400 text-sm mt-1 hover:underline cursor-pointer"
+            >
+              {isExpanded ? "Show Less" : "Read More"}
+            </button>
+          )}
+
           <div className="flex space-x-2 mt-2">
             <Dialog.Root>
               <Dialog.Trigger>
