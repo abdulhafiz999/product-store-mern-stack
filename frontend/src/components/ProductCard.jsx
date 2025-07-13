@@ -6,6 +6,8 @@ import { toast } from "sonner";
 function ProductCard({ key, product, setShowModal, setProductId, refreshProducts }) {
 
   const [updatedProduct, setUpdatedProduct] = useState(product)
+  const [isExpanded, setIsExpanded] = useState(false);
+
 
   function handleDeleteProduct(id) {
     setShowModal(true);
@@ -50,6 +52,7 @@ function ProductCard({ key, product, setShowModal, setProductId, refreshProducts
         <div className="p-3">
           <h4>{product?.name}</h4>
           <p>${product?.price}</p>
+          <p>{product?.stock} Pieces available😊</p>
           <p className="line-clamp-3">{product?.description}</p>
           <div className="flex space-x-2 mt-2">
             <Dialog.Root>
@@ -140,14 +143,14 @@ function ProductCard({ key, product, setShowModal, setProductId, refreshProducts
                     <Button
                       variant="soft"
                       color="gray"
-                      className="cursor-pointer"
+                      className="!cursor-pointer"
                     >
                       Cancel
                     </Button>
                   </Dialog.Close>
                   <Dialog.Close asChild>
                     <Button
-                      className="cursor-pointer"
+                      className="!cursor-pointer"
                       onClick={() => updateProductById(product._id)}
                     >
                       Update

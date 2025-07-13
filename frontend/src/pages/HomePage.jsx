@@ -35,13 +35,13 @@ function HomePage() {
   
 
   return (
-    <div className="border h-screen m-0">
+    <div className="border h-screen m-0 overflow-auto">
       <div className="w-[90%] mx-auto">
-        <h2 className="text-center flex justify-center items-center position-sticky">
+        <h2 className="text-center flex justify-center items-center ">
           Current Products <Rocket size={18} />
         </h2>
         {/* This is grid container for the produtcs*/}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {products.map((product) => (
             <ProductCard
               key={product._id}

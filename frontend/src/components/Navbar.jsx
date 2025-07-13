@@ -10,7 +10,7 @@ function Navbar() {
         <div>
           <Link to="/">
             <h1 className="flex items-center gap-2">
-              <span className="colo">Product Store</span> <ShoppingCart size={16} color="white" />
+              <span className="!color-white">Product Store</span> <ShoppingCart size={16} color="white" />
             </h1>
           </Link>
         </div>

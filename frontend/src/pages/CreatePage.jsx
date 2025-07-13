@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 function CreatePage() {
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ function CreatePage() {
       if (response.ok) {
         const data = response.json();
         console.log("Product created successfully", data.product);
+        toast("Product Created Successfully!!! 🎉");
         navigate("/")
       }
     } catch (error) {
