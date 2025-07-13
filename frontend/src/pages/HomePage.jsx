@@ -37,7 +37,7 @@ function HomePage() {
   return (
     <div className="border h-screen m-0">
       <div className="w-[90%] mx-auto">
-        <h2 className="text-center flex justify-center items-center">
+        <h2 className="text-center flex justify-center items-center position-sticky">
           Current Products <Rocket size={18} />
         </h2>
         {/* This is grid container for the produtcs*/}
@@ -48,6 +48,7 @@ function HomePage() {
               product={product}
               setShowModal={setShowModal}
               setProductId={setProductId}
+              refreshProducts={getAllProducts}
             />
           ))}
         </div>
@@ -56,9 +57,7 @@ function HomePage() {
         <ConfirmModal
           setShowModal={setShowModal}
           productId={productId}
-          onDelete={(id) => {
-            setProducts(products.filter((product) => product._id !== id));
-          }}
+          refreshProducts={getAllProducts}
         />
       )}
     </div>

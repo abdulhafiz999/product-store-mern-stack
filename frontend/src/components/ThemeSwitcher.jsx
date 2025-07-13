@@ -1,21 +1,25 @@
-import { MoonIcon, SunIcon } from 'lucide-react'
-import { useTheme } from 'next-themes';
-import React from 'react'
+import { MoonIcon, SunIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
+  console.log(theme === "light")
   return (
     <div>
       <div>
-        {theme === "dark" ? (
-          <SunIcon size={24} className="p-1 bg-gray-600 rounded shadow-xl" 
-          onClick={() => setTheme("dark") }/>
+        {theme === "light" ? (
+          <MoonIcon
+            size={24}
+            className="p-1 bg-gray-600 rounded shadow-xl cursor-pointer"
+            onClick={() => setTheme("dark")}
+          />
         ) : (
-          <MoonIcon size={24} className="p-1 bg-gray-600 rounded" />
+          <SunIcon size={24} className="p-1 bg-gray-600 rounded shadow-xl cursor-pointer"
+          onClick={() => setTheme("light")}/>
         )}
       </div>
     </div>
   );
 }
 
-export default ThemeSwitcher
+export default ThemeSwitcher;

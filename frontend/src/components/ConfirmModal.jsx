@@ -24,15 +24,16 @@ function ConfirmModal({ setShowModal, productId, onDelete }) {
   }
 
   return (
-    <div className="absolute w-full h-screen bg-black/60 top-0 left-0 z-50 flex justify-center items-center">
-      <div className="max-w-2xl mx-auto bg-gray-900 border border-gray-500/25 p-4">
-        <h2>Confirm Product Deletion</h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+      <div className="w-full max-w-md p-6 rounded-lg shadow-2xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 transition-colors">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Confirm Product Deletion</h2>
 
-        <div className="flex gap-2">
-          <Button onClick={() => setShowModal(false)} variant="outline">
+        <div className="flex gap-2 !items-center">
+          <Button onClick={() => setShowModal(false)} variant="outline" className="!cursor-pointer">
             Cancel
           </Button>
-          <Button className="cursor-pointer"
+          <Button
+            className="!cursor-pointer"
             onClick={() => {
               deleteProduct(productId);
               setShowModal(false);
