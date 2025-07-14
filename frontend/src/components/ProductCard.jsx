@@ -51,7 +51,7 @@ function ProductCard({
         <img
           src={product?.imageUrl}
           alt={product?.name}
-          className="overflow-hidden rounded-t w-full h-53 object-cover rounded-2xl"
+          className="overflow-hidden rounded-t w-full h-55 object-cover rounded-2xl"
         />
         <div className="p-3">
           <h4>{product?.name}</h4>
